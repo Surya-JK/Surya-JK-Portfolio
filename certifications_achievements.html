@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surya JK - Achievements</title>
+    <title>Surya JK - Certifications & Achievements</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,6 +11,9 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background-color: #000;
             color: #22c55e;
+            background: conic-gradient(at 50% 50%, #0a0a0a 0%, #036e20 20%, black 40%, black 60%, #001f3f 80%, #0a0a0a 100%);
+            background-size: 200% 200%; 
+            animation: waveBackground 10s linear infinite alternate;
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -26,7 +29,7 @@
             background: #16a34a;
         }
 
-       @keyframes typing {
+        @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
@@ -50,6 +53,11 @@
                 transform: translateY(0);
                 opacity: 1;
             }
+        }
+
+        @keyframes waveBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
         .typing-effect {
@@ -93,12 +101,12 @@
         }
 
         .nav-link-glow:hover {
-            color: #000;
+            color: black;
             border: 4px solid transparent;
         }
 
         main {
-            animation: popFromBottom 0.7s ease-out forwards; 
+            animation: popFromBottom 0.7s ease-out forwards; /* Applied to main */
         }
     </style>
 </head>
@@ -160,8 +168,3 @@
 
 </body>
 </html>
-
-
-
-
-
