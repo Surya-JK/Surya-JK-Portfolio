@@ -11,6 +11,9 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background-color: #000;
             color: #22c55e;
+            background: conic-gradient(at 50% 50%, #0a0a0a 0%, #036e20 20%, black 40%, black 60%, #001f3f 80%, #0a0a0a 100%);
+            background-size: 200% 200%; 
+            animation: waveBackground 10s linear infinite alternate;
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -26,7 +29,7 @@
             background: #16a34a;
         }
 
-        @keyframes typing {
+      @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
@@ -50,6 +53,11 @@
                 transform: translateY(0);
                 opacity: 1;
             }
+        }
+
+        @keyframes waveBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
         .typing-effect {
@@ -98,7 +106,7 @@
         }
 
         main {
-            animation: popFromBottom 0.7s ease-out forwards; 
+            animation: popFromBottom 0.7s ease-out forwards; /* Applied to main */
         }
     </style>
 </head>
@@ -175,7 +183,3 @@
 
 </body>
 </html>
-
-
-
-
