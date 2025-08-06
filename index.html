@@ -13,6 +13,9 @@
             color: #22c55e;
             overflow-x: hidden;
             animation: popfrom;
+            background: conic-gradient(at 50% 50%, #0a0a0a 0%, #036e20 20%, black 40%, black 60%, #001f3f 80%, #0a0a0a 100%);
+            background-size: 200% 200%; 
+            animation: waveBackground 10s linear infinite alternate;
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -64,6 +67,11 @@
             100% { box-shadow: 0 0 15px rgba(148, 0, 211, 0.7); } /* Violet */
         }
 
+        @keyframes waveBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
         .header-name {
             position: absolute;
             top: 2rem;
@@ -96,7 +104,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #22c55e;
-            animation: photo-shadow-glow 4s linear infinite; 
+            animation: photo-shadow-glow 4s linear infinite; /* Apply RGB shadow glow */
             margin-bottom: 1rem;
         }
 
@@ -171,19 +179,18 @@
             bottom: -1em;
         }
 
-        @media (max-width: 768px) {
-        .header-name {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
-        }
-        .profile-photo {
-        width: 100px;
-        height: 100px;
-        }
-        .profile-name {
-        font-size: 2rem;
-        }
+       @media (max-width: 767.98px) { /* Bootstrap's 'sm' breakpoint is 576px, 'md' is 768px */
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            .profile-name {
+                font-size: 2rem;
+            }
+            .navbar-nav .nav-link-glow {
+                padding: 0.3rem 0.6rem; /* Adjust padding for smaller screens */
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -236,4 +243,3 @@
 
 </body>
 </html>
-
