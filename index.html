@@ -12,6 +12,7 @@
             background-color: #000;
             color: #22c55e;
             overflow-x: hidden;
+            animation: popfrom;
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -52,7 +53,7 @@
             0% { background-position: 0% 0%; }
             100% { background-position: 100% 0%; }
         }
-        
+
         @keyframes photo-shadow-glow {
             0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); } /* Red */
             16% { box-shadow: 0 0 15px rgba(255, 127, 0, 0.7); } /* Orange */
@@ -171,18 +172,18 @@
         }
 
         @media (max-width: 768px) {
-            .header-name {
-                font-size: 2rem;
-                top: 1rem;
-                right: 1rem;
-            }
-            .profile-photo {
-                width: 100px;
-                height: 100px;
-            }
-            .profile-name {
-                font-size: 2rem;
-            }
+        .header-name {
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+        }
+        .profile-photo {
+        width: 100px;
+        height: 100px;
+        }
+        .profile-name {
+        font-size: 2rem;
+        }
         }
     </style>
 </head>
@@ -198,14 +199,14 @@
             <a href="certifications_achievements.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Certifications & Achievements</a>
         </nav>
     </header>
-
+    <main>
         <div class="profile-section">
             <img src="https://placehold.co/150x150/000/22c55e?text=Your+Photo" alt="Surya JK's Photo" class="profile-photo">
             <div class="profile-name">Surya JK</div>
         </div>
 
         <section id="home-section" class="text-center max-w-4xl mx-auto py-16">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-green-400 typing-effect">Welcome to My Portfolio</h1>
+            <h1 class="text-2xl md:text-7xl font-bold mb-6 text-green-400 typing-effect">Welcome to My Portfolio</h1>
             <p class="text-lg md:text-xl mb-8 text-gray-300">
                 Showcasing my skills, projects, and educational journey.
             </p>
@@ -235,8 +236,3 @@
 
 </body>
 </html>
-
-
-
-
-
