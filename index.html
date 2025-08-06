@@ -38,7 +38,7 @@
             }
         }
 
-        @keyframes typing {
+       @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
@@ -46,6 +46,11 @@
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: #22c55e; }
+        }
+
+        @keyframes rgb-glow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 0%; }
         }
 
         .header-name {
@@ -95,9 +100,44 @@
             white-space: nowrap;
             border-right: 0.15em solid #22c55e;
             animation: 
-                typing 2s steps(40, end) forwards,
+                typing 1s steps(40, end) forwards,
                 blink-caret .75s step-end infinite;
             width: 0;
+        }
+
+        .nav-link-glow {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 9999px;
+        }
+
+        .nav-link-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, 
+                #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 100%;
+            border-radius: 9999px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link-glow:hover::before {
+            opacity: 1;
+            animation: rgb-glow 2s linear infinite;
+        }
+
+        .nav-link-glow:hover {
+            color: #000;
+            border: 4px solid transparent;
         }
 
         @media (max-width: 768px) {
@@ -120,12 +160,12 @@
 
     <header class="bg-gray-900 p-4 md:p-6 text-center">
         <nav class="flex flex-wrap justify-center gap-4">
-            <a href="index.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| Home |</a>
-            <a href="about.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| About Me |</a>
-            <a href="technical_skills.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| Technical Skills |</a>
-            <a href="projects.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| Projects |</a>
-            <a href="education.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| Education |</a>
-            <a href="certifications_achievements.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300">| Certifications & Achievements |</a>
+            <a href="Resume.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Home</a>
+            <a href="about.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">About Me</a>
+            <a href="technical_skills.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Technical Skills</a>
+            <a href="projects.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Projects</a>
+            <a href="education.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Education</a>
+            <a href="certifications_achievements.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Certifications & Achievements</a>
         </nav>
     </header>
 
@@ -165,3 +205,4 @@
 
 </body>
 </html>
+
