@@ -11,68 +11,35 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background-color: #000;
             color: #22c55e;
+            overflow-x: hidden;
             background: conic-gradient(at 50% 50%, #0a0a0a 0%, #036e20 20%, black 40%, black 60%, #001f3f 80%, #0a0a0a 100%);
             background-size: 200% 200%; 
             animation: waveBackground 10s linear infinite alternate;
+            position: relative; 
         }
 
-        .falling-stars-bg {
-            position: fixed;
+        body::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             z-index: -1;
-            pointer-events: none;
+            opacity: 0.15; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' width='100' height='100'%3E%3Cpath d='M50 0 L100 25 L100 75 L50 100 L0 75 L0 25 Z' stroke='%2322c55e' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            animation: moveHexGrid 30s linear infinite;
         }
-
-        .falling-stars-bg span {
-            position: absolute;
-            background: rgba(34, 197, 94, 0.5);
-            border-radius: 50%;
-            animation: fall 5s linear infinite;
-            width: 8px; 
-            height: 8px; 
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%) scale(1.5);
-                opacity: 0;
+    
+        @keyframes moveHexGrid {
+            from {
+                background-position: 0 0;
             }
-            10% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(100vh) scale(1);
-                opacity: 0;
+            to {
+                background-position: 100% 100%;
             }
         }
-        
-        .falling-stars-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .falling-stars-bg span:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .falling-stars-bg span:nth-child(3) { left: 35%; animation-delay: 5s; }
-        .falling-stars-bg span:nth-child(4) { left: 50%; animation-delay: 8s; }
-        .falling-stars-bg span:nth-child(5) { left: 70%; animation-delay: 3s; }
-        .falling-stars-bg span:nth-child(6) { left: 85%; animation-delay: 6s; }
-        .falling-stars-bg span:nth-child(7) { left: 95%; animation-delay: 9s; }
-        .falling-stars-bg span:nth-child(8) { left: 5%; animation-delay: 1s; }
-        .falling-stars-bg span:nth-child(9) { left: 25%; animation-delay: 4s; }
-        .falling-stars-bg span:nth-child(10) { left: 60%; animation-delay: 7s; }
-        .falling-stars-bg span:nth-child(11) { left: 45%; animation-delay: 10s; }
-        .falling-stars-bg span:nth-child(12) { left: 75%; animation-delay: 12s; }
-        .falling-stars-bg span:nth-child(13) { left: 15%; animation-delay: 11s; }
-        .falling-stars-bg span:nth-child(14) { left: 80%; animation-delay: 13s; }
-        .falling-stars-bg span:nth-child(15) { left: 40%; animation-delay: 14s; }
-        .falling-stars-bg span:nth-child(16) { left: 30%; animation-delay: 1s; }
-        .falling-stars-bg span:nth-child(17) { left: 65%; animation-delay: 4s; }
-        .falling-stars-bg span:nth-child(18) { left: 55%; animation-delay: 7s; }
-        .falling-stars-bg span:nth-child(19) { left: 90%; animation-delay: 2s; }
-        .falling-stars-bg span:nth-child(20) { left: 22%; animation-delay: 5s; }
 
         ::-webkit-scrollbar {
             width: 8px;
@@ -146,9 +113,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(to right, 
-                #ff0000, #ff7f00, #ffff00, #00ff00, 
-                #0000ff, #4b0082, #9400d3, #ff0000,
-                #ff7f00, #ffff00, #00ff00);
+                #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
             background-size: 400% 100%;
             border-radius: 9999px;
             z-index: -1;
@@ -167,7 +132,7 @@
         }
 
         main {
-            animation: popFromBottom 0.7s ease-out forwards; 
+            animation: popFromBottom 0.7s ease-out forwards; /* Applied to main */
         }
     </style>
 </head>
@@ -180,12 +145,12 @@
     </div>
     <header class="bg-gray-900 p-4 md:p-6 text-center">
         <nav class="flex flex-wrap justify-center gap-4">
-            <a href="index.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">Home</a>
-            <a href="about.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">About Me</a>
-            <a href="technical_skills.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">Technical Skills</a>
-            <a href="projects.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">Projects</a>
-            <a href="education.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">Education</a>
-            <a href="certifications_achievements.html" class="text-green-400 hover:text-black-300 font-semibold text-lg transition duration-300 nav-link-glow">Achievements</a>
+            <a href="index.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Home</a>
+            <a href="about.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">About Me</a>
+            <a href="technical_skills.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Technical Skills</a>
+            <a href="projects.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Projects</a>
+            <a href="education.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Education</a>
+            <a href="certifications_achievements.html" class="text-green-400 hover:text-green-300 font-semibold text-lg transition duration-300 nav-link-glow">Achievements</a>
         </nav>
     </header>
 
@@ -243,5 +208,3 @@
 
 </body>
 </html>
-
-
